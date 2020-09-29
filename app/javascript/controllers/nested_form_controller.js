@@ -9,8 +9,7 @@ export default class extends Controller {
 
   add_association(event) {
     event.preventDefault()
-    console.log(this.templateTarget.innerHTML)
-    var content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, new Date().getTime())
+    const content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, this.timestamp)
     this.associationsTarget.insertAdjacentHTML('beforeend', content)
   }
 
@@ -35,7 +34,7 @@ export default class extends Controller {
     nameAttribute.replace(regex, `$1[${this.timestamp}]$2$3`)
   }
 
-  get timestamp = () => {
+  get timestamp() {
     return new Date().valueOf();
   }
 }

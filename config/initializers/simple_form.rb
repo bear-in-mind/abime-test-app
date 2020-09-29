@@ -154,7 +154,7 @@ SimpleForm.setup do |config|
 
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
-  config.wrapper_mappings = { select: :tailwind_select, file: :dropzone_wrapper }
+  config.wrapper_mappings = { select: :tailwind_select }
 
   # Define the way to render check boxes / radio buttons with labels.
   # Defaults to :nested for bootstrap config.

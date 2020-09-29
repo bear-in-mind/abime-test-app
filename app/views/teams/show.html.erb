@@ -8,7 +8,7 @@
 <h1>Players</h1>
 <ul>
   <% @team.players.each do |player| %>
-    <li><%= "#{player.name} - #{player.email} (#{player.age})" %> </li>
+    <li><%= "#{player.name} - #{player.email} (#{player.age}) | Setups: #{player.setups.count} " %> </li>
   <% end %>
 </ul>
 

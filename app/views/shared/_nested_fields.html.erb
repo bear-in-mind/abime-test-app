@@ -1,0 +1,16 @@
+<div data-controller="nested-form">
+  <% child_class_name = child_instance.class.to_s.tableize.singularize %>
+  <template data-target="nested-form.template" data-parent="<%= parent_object.object_name %>" data-child="<%= child_class_name %>">
+      <%= parent_object.simple_fields_for child_instance.class.to_s.tableize.to_sym, child_instance, child_index: 'NEW_RECORD' do |child_object| %>
+        <%= render "shared/#{child_class_name}_fields", f: child_object %>
+      <% end %>
+  </template>
+  <div class="associations" data-target="nested-form.associations">
+    <%= parent_object.simple_fields_for child_instance.class.to_s.tableize.to_sym do |child_object| %>
+      <%= render "shared/#{child_class_name}_fields", f: child_object %>
+    <% end %>
+  </div>
+  <div class="m-6" data-target="nested-form.links">
+    <%= link_to "Add #{child_class_name}", "#", class: "btn btn-green", data: { action: "click->nested-form#add_association" } %>
+  </div>
+</div>

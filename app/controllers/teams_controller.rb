@@ -26,7 +26,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
-
+    raise
     respond_to do |format|
       if @team.save
         format.html { redirect_to @team, notice: 'Team was successfully created.' }
@@ -70,6 +70,11 @@ class TeamsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def team_params
-      params.require(:team).permit(:name, players_attributes: [:name, :email, :age])
+      params.require(:team).permit(:name,
+        players_attributes: [:name, :id, :_destroy, :email, :age, setups_attributes: [
+          :name, :id, :_destroy
+        ]
+      ]
+      )
     end
 end

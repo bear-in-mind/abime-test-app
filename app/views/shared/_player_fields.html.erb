@@ -2,6 +2,13 @@
   <%= f.input :name %>
   <%= f.input :email %>
   <%= f.input :age %>
-  <small><%= link_to "Remove", "#", class: "btn btn-red m-4", data: { action: "click->nested-form#remove_association" } %></small>
+  <div class="flex w-full justify-between h-full">
+    <%= link_to "Remove player", "#", class: "btn btn-red m-4", data: { action: "click->nested-form#remove_association" } %>
+    <%#= link_to "Add Setup", "#", class: "btn btn-blue", data: { action: "click->nested-form#add_association" } %>
+  </div>
   <%= f.hidden_field :_destroy %>
+  <%= render 'shared/nested_fields', parent_object: f, child_instance: Setup.new %>
+  <div class="m-6" data-target="nested-form.links">
+    <%#= link_to "Add player", "#", class: "btn btn-green", data: { action: "click->nested-form#add_association" } %>
+  </div>
 <% end %>

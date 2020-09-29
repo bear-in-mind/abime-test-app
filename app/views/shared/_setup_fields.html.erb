@@ -1,0 +1,6 @@
+<%= content_tag :div, class: "nested-fields", data: { new_record: f.object.new_record?, target: "nested-fields.association" } do %>
+  <%= f.input :name, label: "Setup name" %>
+  <%= f.input :file %>
+  <small><%= link_to "Remove setup", "#", class: "btn btn-red m-4", data: { action: "click->nested-form#remove_association" } %></small>
+  <%= f.hidden_field :_destroy %>
+<% end %>
