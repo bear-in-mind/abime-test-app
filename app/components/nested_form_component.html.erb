@@ -1,0 +1,10 @@
+<div data-controller="nested-form">
+  <div class="associations" data-target="nested-form.associations">
+    <%= parent_object.simple_fields_for child_instance.class.to_s.tableize.to_sym do |child_object| %>
+      <%= render "shared/#{association_name}_fields", f: child_object %>
+    <% end %>
+  </div>
+  <div class="m-6" data-target="nested-form.links">
+    <%= link_to "Add #{association_name}", "#", class: "btn btn-green", data: { action: "click->nested-form#add_association" } %>
+  </div>
+</div>
