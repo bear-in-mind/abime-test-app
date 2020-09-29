@@ -9,6 +9,7 @@ export default class extends Controller {
 
   add_association(event) {
     event.preventDefault()
+    console.log(this.templateTarget.innerHTML)
     var content = this.templateTarget.innerHTML.replace(/NEW_RECORD/g, new Date().getTime())
     this.associationsTarget.insertAdjacentHTML('beforeend', content)
   }
@@ -27,5 +28,14 @@ export default class extends Controller {
       wrapper.querySelector("input[name*='_destroy']").value = 1
       wrapper.style.display = 'none'
     }
+  }
+
+  replaceCounterInParam = (nameAttribute, parent, child) => {
+    let regex = new RegExp(`.*(${parent})(\[${child}\])(.*)`, 'g');
+    nameAttribute.replace(regex, `$1[${this.timestamp}]$2$3`)
+  }
+
+  get timestamp = () => {
+    return new Date().valueOf();
   }
 }

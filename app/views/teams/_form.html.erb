@@ -2,7 +2,7 @@
   <%= f.input :name, label: "Team name" %>
     <h1>Players</h1>
     <template data-target="nested-form.template">
-        <%= f.simple_fields_for Player.new, child_index: 'NEW_RECORD' do |pl| %>
+        <%= f.fields_for Player.new, child_index: 'NEW_RECORD' do |pl| %>
           <%= render 'shared/player_fields', f: pl %>
         <% end %>
     </template>

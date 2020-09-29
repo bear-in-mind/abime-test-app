@@ -1,9 +1,7 @@
 <%= content_tag :div, class: "nested-fields", data: { new_record: f.object.new_record?, target: "nested-fields.association" } do %>
-  <div>
-    <%= f.input :name %>
-    <%= f.input :email %>
-    <%= f.input :age %>
-    <small><%= link_to "Remove", "#", class: "btn btn-red m-4", data: { action: "click->nested-form#remove_association" } %></small>
-    <%= f.hidden_field :_destroy %>
-  </div>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.input :age %>
+  <small><%= link_to "Remove", "#", class: "btn btn-red m-4", data: { action: "click->nested-form#remove_association" } %></small>
+  <%= f.hidden_field :_destroy %>
 <% end %>
