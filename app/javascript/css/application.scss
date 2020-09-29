@@ -1,3 +1,26 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer components {
+  input[type=text], input[type=email], input[type=password], textarea, .tagify {
+    @apply bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight transition-all transition-all duration-500 ease-in-out;
+  }
+  input[type=text], input[type=email], input[type=password] {
+    height: 44px;
+  }
+  select {
+    @apply appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 rounded;
+  }
+  .radio {
+    @apply my-2 text-gray-600;
+    label {
+      @apply ml-2;
+    }
+  }
+  .field_with_errors {
+    input {
+      @apply border-red-400;
+    }
+  }
+}
